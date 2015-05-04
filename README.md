@@ -1,9 +1,9 @@
 ﻿# OAD-CSUNSA-2015-SCRATCH
-Proyecto de programación de un Scratch para el curso de OAD - UNSA
+Proyecto de programación de un Scratch para el curso de OAD - UNSA 2015
 
 ******MIEMBROS DEL GRUPO*********
  1.- Ruben Edwin Hualla Quispe
- 2.- Edson Lipa Urbina *
+ 2.- Edson Victor Lipa Urbina 
  3.- Franklin Canazas cori *
 
 	*(Commitear sus nombres si estan mal {:)})
@@ -13,7 +13,7 @@ FECHA DE CREACION DEL README Y EL REPOSITORIO: 20/04/2015
 FECHA DE INVIACION AL PROFESOR ERNESTO: 28/04/2015
 
 ACTUALIZACIÓN 29/04/2015
-
+ACTUALIZACIÓN 04/05/2015
 LUEGO DE VARIOS DIAS PORFIN TENEMOS A TODOS LOS MIEMBROS DEL GRUPO DENTRO DE LA ORGANIZACION
 Y EL TEAM SCRATCH. 
 * Profesor con invitación pendiente...
