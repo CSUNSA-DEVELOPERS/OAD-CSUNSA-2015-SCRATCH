@@ -4,7 +4,7 @@ Proyecto de programación de un Scratch para el curso de OAD - UNSA 2015
 ******MIEMBROS DEL GRUPO*********
  1.- Ruben Edwin Hualla Quispe
  2.- Edson Victor Lipa Urbina 
- 3.- Franklin Canazas cori *
+ 3.- Franklin Canaza ccori 
 
 	*(Commitear sus nombres si estan mal {:)})
 
@@ -14,6 +14,7 @@ FECHA DE INVIACION AL PROFESOR ERNESTO: 28/04/2015
 
 ACTUALIZACIÓN 29/04/2015
 ACTUALIZACIÓN 04/05/2015
+
 LUEGO DE VARIOS DIAS PORFIN TENEMOS A TODOS LOS MIEMBROS DEL GRUPO DENTRO DE LA ORGANIZACION
 Y EL TEAM SCRATCH. 
 * Profesor con invitación pendiente...
@@ -31,3 +32,6 @@ y se le reenvio la invitación
 	- Eliminado el archivo "Readme2" 
 	- Agregado el archivo "Estructura de Clases", para establecer la estructura de las clases
 	  que se utilizara en el proyecto.
+ACTUALIZACION 05/05/2015
+
+-Todos los mienbros del grupo hicieron commits
