@@ -6,14 +6,10 @@ Proyecto de programación de un Scratch para el curso de OAD - UNSA 2015
  2.- Edson Victor Lipa Urbina 
  3.- Franklin Canaza ccori 
 
-	*(Commitear sus nombres si estan mal {:)})
 
-******
+******UPDATES*********************
 FECHA DE CREACION DEL README Y EL REPOSITORIO: 20/04/2015
 FECHA DE INVIACION AL PROFESOR ERNESTO: 28/04/2015
-
-ACTUALIZACIÓN 29/04/2015
-ACTUALIZACIÓN 04/05/2015
 
 LUEGO DE VARIOS DIAS PORFIN TENEMOS A TODOS LOS MIEMBROS DEL GRUPO DENTRO DE LA ORGANIZACION
 Y EL TEAM SCRATCH. 
@@ -32,6 +28,13 @@ y se le reenvio la invitación
 	- Eliminado el archivo "Readme2" 
 	- Agregado el archivo "Estructura de Clases", para establecer la estructura de las clases
 	  que se utilizara en el proyecto.
+
 ACTUALIZACION 05/05/2015
 
 -Todos los mienbros del grupo hicieron commits
+
+ACTUALIZACION 09/05/2015
+
+- Eliminados todos los archivos no relacionados con el proyecto .
+- Empezando el nuevo proyecto scratch.
+- Agregando los archivos necesarios para empezar el proyecto scratch 2015.
