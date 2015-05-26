@@ -38,3 +38,16 @@ ACTUALIZACION 09/05/2015
 - Eliminados todos los archivos no relacionados con el proyecto .
 - Empezando el nuevo proyecto scratch.
 - Agregando los archivos necesarios para empezar el proyecto scratch 2015.
+
+ACTUALIZACION 21/05/2015
+
+- Eliminados archivos innecesarios
+- Desde hoy solo se subira archivos .cpp .h asi cada miembro puede compilar en su IDE
+- Petición de usar QT creator por parte del compañero Lipa denegada
+- Configuración de las IDE's para usar SFML 2.1 lista.
+- Creacion de los archivos main.cpp button.h button.cpp
+
+ACTUALIZACION 22/05/2015
+
+- Aun a la espera de que el profesor Cuadros acepte la invitacion pendiente.
+- Implementacion de la deteccion de click cuando se hace click en el boton.
