@@ -51,3 +51,9 @@ ACTUALIZACION 22/05/2015
 
 - Aun a la espera de que el profesor Cuadros acepte la invitacion pendiente.
 - Implementacion de la deteccion de click cuando se hace click en el boton.
+
+ACTUALIZACION 02/06/2015
+
+- Luego de temporada de parciales, continuamos con el proyecto 
+- Actualizado el proyecto a su version en español :) 
+- botones funcionando, buscando funcion para acomodar sus letras.
