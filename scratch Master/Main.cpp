@@ -15,9 +15,20 @@
 
 using namespace std;
 
-typedef sf::Vector2i Mouse_Posicion;
-typedef sf::Vector2f Boton_Posicion;
 typedef std::string Boton_Texto;
+
+int n=10,x=20,y=20;	//numero de botones
+
+/********PRUEBA de FUNCION***************/
+sf::Vector2f medidas(50, 50);
+sf::RectangleShape rect(medidas);
+
+void myFunction()
+{
+	rect.move(9, 5);
+}
+/*****************************/
+
 
 int main()
 {
@@ -25,39 +36,40 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Scratch in development", sf::Style::Default);
 
 	/*cadena de texto que llevara un boton*/
-	Boton_Texto texto = "boton";
-
-	/*Vectores de posiciones*/
-	Boton_Posicion PosicionBotones(50, 50);
-	Mouse_Posicion PosicionMouse;
-
-	/*Carga las texturas que usaran los botones*/
-	sf::Texture TexturaBoton, TexturaBotonClickeado;
-	if (!TexturaBoton.loadFromFile("buttonwhite.png") || !TexturaBotonClickeado.loadFromFile("buttonwhite2.png"))
-	{
-		std::cout << "couldn't open the file" << std::endl;
-	}
+	Boton_Texto texto = "Mover";
 
 	/*Fuente que usara el Text del Boton*/
 	sf::Font FuenteDelBoton;
-	if (!FuenteDelBoton.loadFromFile("ethnocen.ttf"))
+	if (!FuenteDelBoton.loadFromFile("contb.ttf"))
 	{
 		std::cout << "Couln't open the font" << std::endl;
 	}
 
-	std::vector<Button*> Botones; //Nuevo vector de punteros de tipo Button
+	std::vector<Boton*> Botones; //Nuevo vector de punteros de tipo Button
 
-	/*Agrega '5' nuevos objetos del tipo boton con tres parametros del constructor y actualiza la posicion del siguiente boton*/
-	for (int i = 0; i < 5; i++)
+	/*Agrega 'n' nuevos objetos del tipo boton con dos parametros del constructor */
+	for (int i = 0; i < n; i++)
 	{
-		Botones.push_back(new Button(&TexturaBoton, &TexturaBotonClickeado, PosicionBotones));
-		PosicionBotones.y += 100;
+		Botones.push_back(new Boton(FuenteDelBoton, { 100.f, 40.f }));
 	}
 
-	/*Establece el texto que llevara cada boton i dentro del vector*/
-	for (int i = 0; i < 5; i++)
+	/*Establece los parametros que llevaran cada boton i dentro del vector*/
+	for (int i = 0; i < n; i++)
 	{
-		Botones[i]->setTexto(&FuenteDelBoton, &texto);
+		
+		Botones[i]->setCadena_Texto(texto);
+		Botones[i]->setPosition(x, y);
+		Botones[i]->setColor_Fondo(sf::Color(59, 134, 134));
+		Botones[i]->setColor_Texto(sf::Color(11, 72, 107));
+		Botones[i]->setAncho_Borde(1.f);
+		Botones[i]->setColor_Borde(sf::Color(168, 219, 168));
+
+		Botones[i]->setColor_FondoRatonSobreBoton(sf::Color(121, 189, 154));
+		Botones[i]->setColor_TextoRSB(sf::Color(207, 240, 158));
+		Botones[i]->setColor_BordeRSB(sf::Color(168, 219, 168));
+
+		Botones[i]->setFuncion(myFunction);
+		y += 50;
 	}
 
 	while (window.isOpen()) //Loop
@@ -67,51 +79,31 @@ int main()
 		{
 			if (event.type == sf::Event::Closed) //Detecta el evento de cierre de la ventana
 				window.close();
-			if (event.type == sf::Event::MouseButtonPressed) //Detecta el evento click presionado
+			for (int i = 0; i < n; i++)
 			{
-				if (event.mouseButton.button == sf::Mouse::Left)
-				{
-					std::cout << "El click izquierdo fue presionado" << std::endl;
-					std::cout << "mouse x: " << event.mouseButton.x << std::endl;
-					std::cout << "mouse y: " << event.mouseButton.y << std::endl;
-					PosicionMouse.x = event.mouseButton.x;
-					PosicionMouse.y = event.mouseButton.y;
-		
-					//Verifica si se hace click dentro del boton i si lo hace cambia de textura*/
-					for (int i = 0; i < 5; i++)
-					{
-						Botones[i]->VerificarClick(PosicionMouse);
-					}
-				}
-			}
-			if (event.type == sf::Event::MouseMoved)  //Detecta el movimiento del mouse
-			{
-			std::cout << "Mouse x: " << event.mouseMove.x << std::endl;
-			std::cout << "Mouse y: " << event.mouseMove.y << std::endl;
-			PosicionMouse.x = event.mouseMove.x;
-			PosicionMouse.y = event.mouseMove.y;
+				Botones[i]->eventos(event);
 			}
 		}
 
-		/*for (int i = 0; i < 5; i++)
+		for (int i = 0; i < n; i++)
 		{
-			Botones[i]->Update(event, window);
-		}*/
-		
-
-		window.clear(sf::Color(200, 0, 0)); //Limpia la ventana y le asigna el color ROJO(200)
-
-		for (int i = 0; i < 5; i++)
-		{
-			window.draw(*Botones[i]->getSprite()); //Obtiene el sprite y lo dibuja en la ventana
-			window.draw(*Botones[i]->getTexto()); //Obtiene el texto y lo dibuja en la ventana
+			Botones[i]->manejadorE(window);
 		}
 
+		window.clear(); //Limpia la ventana
+
+		for (int i = 0; i < n; i++)
+		{
+			window.draw(*Botones[i]); //Dibuja los botones con la funcion sobreescrita en la clase
+			
+		}
+
+		window.draw(rect);
 		window.display();
 	} //Fin de la ventana
 
 	/*Eliminando los punteros a objetos Button con un iterador*/
-	for (std::vector<Button*>::iterator iterador = Botones.begin(); iterador != Botones.end(); ++iterador)
+	for (std::vector<Boton*>::iterator iterador = Botones.begin(); iterador != Botones.end(); ++iterador)
 	{
 		delete *iterador;
 	}

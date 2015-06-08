@@ -57,3 +57,10 @@ ACTUALIZACION 02/06/2015
 - Luego de temporada de parciales, continuamos con el proyecto 
 - Actualizado el proyecto a su version en español :) 
 - botones funcionando, buscando funcion para acomodar sus letras.
+
+ACTUALIZACION 07/06/2015
+
+- Aun a la espera de la aceptacion del profesor, reuniendo valor para decirle que nos acepte en clase
+- Implementado "botons sample" hacia El proyecto scratch master
+- Todo lo Posible esta en español
+- Botones ya no necesitan texturas, ahora se crean con funciones propias de la libreria
