@@ -48,15 +48,16 @@
 
 1441164678 /home/julio/Desktop/Lista_Simplemente_Enlazada/ListSE/Nodo.h
 
-1442156485 source:d:\proyectos\c++11\estructuras de datos\listse\main.cpp
+1442156687 source:d:\proyectos\c++11\estructuras de datos\listse\main.cpp
 	<iostream>
 	"Table.h"
 	"App.h"
 
-1442156510 d:\proyectos\c++11\estructuras de datos\listse\table.h
+1442282508 d:\proyectos\c++11\estructuras de datos\listse\table.h
 	"List.h"
 	<fstream>
 	<cstring>
+	<string>
 	<iostream>
 
 1442151722 d:\proyectos\c++11\estructuras de datos\listse\list.h
@@ -69,6 +70,8 @@
 1442155874 d:\proyectos\c++11\estructuras de datos\listse\include\aplicacion.h
 	"Table.h"
 
-1442156648 d:\proyectos\c++11\estructuras de datos\listse\app.h
+1442282535 d:\proyectos\c++11\estructuras de datos\listse\app.h
 	"Table.h"
+	<string>
+	<vector>
 

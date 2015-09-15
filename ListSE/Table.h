@@ -3,6 +3,7 @@
 #include "List.h"
 #include <fstream>
 #include <cstring>
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -34,19 +35,29 @@ class Table{
     //public:
         Table(char *file);
         void index();
-        T GetRecord(char *key);
+        string GetRecord(char *key);
+
         void printKey();
-        void StartPrinting();
         void printNext(Nodo<T>* &temp);
         void printPrev(Nodo<T>* &temp);
         void printFirst();
         void printLast();
+        void write_in_file(char *key, std::string &temp);
 };
 
 template<class T>
 Table<T> :: Table(char *file){
     this->file = file;
     Current = nullptr;
+}
+
+template <class T>
+void Table<T>::write_in_file(char* key, string &temp)
+{
+    std::ofstream out;
+    out.open(file, std::ios::app);
+    out<<temp;
+    out.close();
 }
 
 template<class T>
@@ -63,22 +74,18 @@ void Table<T> :: index(){
 
         in.getline(key, 11, ','); /** capturamos los 11 primeros caracteres o hasta encontrar una coma **/
         in.getline(buffer, 1000); /** capturamos los siguientes 1000 caracteres **/
-
-        std::cout << key << buffer << std::endl;
-
-
         Record R;
         strcpy(R.key , key); /** copiamos el contenido de key en el key de Record **/
         R.start = offset; /** guardamos el inicio del registro **/
         m_record.pushBack(R); /** ingresamos el registro a lista **/
-        offset += strlen(key) + strlen(buffer) + 2; /** actualizamos la variable para el inicio de la siguiente linea **/
+        offset += strlen(key) + strlen(buffer) + 3; /** actualizamos la variable para el inicio de la siguiente linea **/
     }
 
     in.close();
 }
 
 template<class T>
-T Table<T> :: GetRecord(char * key)
+string Table<T> :: GetRecord(char * key)
 {
        char data[1000];
        Record *r = m_record.findElem(key, new Record); /** funcion especial que devuelve el puntero de el Record buscado **/
@@ -87,9 +94,13 @@ T Table<T> :: GetRecord(char * key)
        if(r){
            std::ifstream file(this->file,ios::in | ios::binary); /** abrimos el archivo para manipularlo **/
            file.seekg(r->start, std::ios_base::beg); /** Nos posicionamos en el archivo segun la posicion guardada del registro **/
+           pos = file.tellg();
+           std::cout<<" posicion "<< r->start << " " << std::endl;
            file.getline(data, 1000); /** capturamos los la linea **/
            pos = file.tellg();
-           std::cout<<":::"<< data <<"posicion"<< pos << std::endl;
+           std::cout<<"::: "<< data <<" posicion"<< pos << " " << std::endl;
+           string str = string(data);
+           return str;
        }
        else
        {
@@ -100,40 +111,6 @@ T Table<T> :: GetRecord(char * key)
 template<class T>
 void Table<T> :: printKey(){
     m_record.printStruct();
-}
-
-template <class T>
-void Table<T>::StartPrinting()
-{
-    Current = m_record.head;
-    GetRecord((Current->dato).key);
-    int opcion;
-    bool salir;
-    do
-    {
-    std::cout << "INGRESE LA OPCION: "<<std::endl;
-    std::cout << "1) FIRST\n2) PREV\n3)NEXT\n4)LAST \n";
-    cin>>opcion;
-    switch(opcion)
-    {
-        case 1:
-            printFirst();
-            Current = m_record.head;
-            break;
-        case 2:
-            printPrev(Current);
-            break;
-        case 3:
-            printNext(Current);
-            break;
-        case 4:
-            printLast();
-            Current = m_record.last;
-            break;
-    }
-    cout << "salir? (0/1)" << endl;
-    cin>>salir;
-    }while(salir!= 1);
 }
 
 template <class T>
